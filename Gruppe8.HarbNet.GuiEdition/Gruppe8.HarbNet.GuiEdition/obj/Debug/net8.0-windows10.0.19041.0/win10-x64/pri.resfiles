@@ -1,3 +1,9 @@
+<<<<<<< HEAD:Gruppe8.HarbNet.GuiEdition/Gruppe8.HarbNet.GuiEdition/obj/Debug/net8.0-windows10.0.19041.0/win10-x64/pri.resfiles
 C:\Users\andbe\.nuget\packages\microsoft.maui.controls.compatibility\8.0.3\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri
 C:\Users\andbe\.nuget\packages\microsoft.maui.controls.core\8.0.3\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.pri
 C:\Users\andbe\.nuget\packages\microsoft.maui.core\8.0.3\lib\net8.0-windows10.0.19041\Microsoft.Maui.pri
+=======
+C:\Users\Micha\.nuget\packages\microsoft.maui.controls.compatibility\8.0.7\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri
+C:\Users\Micha\.nuget\packages\microsoft.maui.controls.core\8.0.7\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.pri
+C:\Users\Micha\.nuget\packages\microsoft.maui.core\8.0.7\lib\net8.0-windows10.0.19041\Microsoft.Maui.pri
+>>>>>>> 19d4d6892ab6ccd621eec9798a927cb59e6ffa5e:HarbNet_GuiEdition/HarbNet_GuiEdition/obj/Debug/net8.0-windows10.0.19041.0/win10-x64/pri.resfiles

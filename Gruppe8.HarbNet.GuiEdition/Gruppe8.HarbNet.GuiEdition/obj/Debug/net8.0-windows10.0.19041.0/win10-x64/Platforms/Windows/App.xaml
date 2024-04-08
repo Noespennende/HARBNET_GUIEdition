@@ -1,9 +1,17 @@
 ﻿<maui:MauiWinUIApplication
+<<<<<<< HEAD:Gruppe8.HarbNet.GuiEdition/Gruppe8.HarbNet.GuiEdition/obj/Debug/net8.0-windows10.0.19041.0/win10-x64/Platforms/Windows/App.xaml
     x:Class="Gruppe8.HarbNet.GuiEdition.WinUI.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:maui="using:Microsoft.Maui"
     xmlns:local="using:Gruppe8.HarbNet.GuiEdition.WinUI">
+=======
+    x:Class="HarbNet_GuiEdition.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:maui="using:Microsoft.Maui"
+    xmlns:local="using:HarbNet_GuiEdition.WinUI">
+>>>>>>> 19d4d6892ab6ccd621eec9798a927cb59e6ffa5e:HarbNet_GuiEdition/HarbNet_GuiEdition/obj/Debug/net8.0-windows10.0.19041.0/win10-x64/Platforms/Windows/App.xaml
 
 </maui:MauiWinUIApplication>
 

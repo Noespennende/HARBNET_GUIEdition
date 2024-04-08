@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Gruppe8.HarbNet;
+using Microsoft.Extensions.Logging;
 
 namespace Gruppe8.HarbNet.GuiEdition
 {
@@ -20,6 +21,7 @@ namespace Gruppe8.HarbNet.GuiEdition
 #endif
 
             return builder.Build();
+            
         }
     }
 }
