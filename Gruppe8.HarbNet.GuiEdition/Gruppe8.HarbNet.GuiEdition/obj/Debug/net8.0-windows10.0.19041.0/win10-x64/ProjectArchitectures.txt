@@ -1,5 +1,0 @@
-<<<<<<< HEAD:Gruppe8.HarbNet.GuiEdition/Gruppe8.HarbNet.GuiEdition/obj/Debug/net8.0-windows10.0.19041.0/win10-x64/ProjectArchitectures.txt
-D:\Google Drive\Skole\4 semester\NET\Obliger\HarbNet_GuiEdition\Gruppe8.HarbNet.GuiEdition\Gruppe8.HarbNet.GuiEdition\Gruppe8.HarbNet.GuiEdition.csproj;x64
-=======
-D:\github\HarbNet_GuiEdition\HarbNet_GuiEdition\HarbNet_GuiEdition\HarbNet_GuiEdition.csproj;x64
->>>>>>> 19d4d6892ab6ccd621eec9798a927cb59e6ffa5e:HarbNet_GuiEdition/HarbNet_GuiEdition/obj/Debug/net8.0-windows10.0.19041.0/win10-x64/ProjectArchitectures.txt
