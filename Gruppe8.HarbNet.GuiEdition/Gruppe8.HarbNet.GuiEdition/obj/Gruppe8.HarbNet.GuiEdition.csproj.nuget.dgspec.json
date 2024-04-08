@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD:Gruppe8.HarbNet.GuiEdition/Gruppe8.HarbNet.GuiEdition/obj/Gruppe8.HarbNet.GuiEdition.csproj.nuget.dgspec.json
     "D:\\Google Drive\\Skole\\4 semester\\NET\\Obliger\\HarbNet_GuiEdition\\Gruppe8.HarbNet.GuiEdition\\Gruppe8.HarbNet.GuiEdition\\Gruppe8.HarbNet.GuiEdition.csproj": {}
   },
   "projects": {
@@ -13,26 +12,13 @@
         "projectPath": "D:\\Google Drive\\Skole\\4 semester\\NET\\Obliger\\HarbNet_GuiEdition\\Gruppe8.HarbNet.GuiEdition\\Gruppe8.HarbNet.GuiEdition\\Gruppe8.HarbNet.GuiEdition.csproj",
         "packagesPath": "C:\\Users\\andbe\\.nuget\\packages\\",
         "outputPath": "D:\\Google Drive\\Skole\\4 semester\\NET\\Obliger\\HarbNet_GuiEdition\\Gruppe8.HarbNet.GuiEdition\\Gruppe8.HarbNet.GuiEdition\\obj\\",
-=======
-    "D:\\github\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition.csproj": {}
-  },
-  "projects": {
-    "D:\\github\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\github\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition.csproj",
-        "projectName": "HarbNet_GuiEdition",
-        "projectPath": "D:\\github\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition.csproj",
-        "packagesPath": "C:\\Users\\Micha\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\HarbNet_GuiEdition\\obj\\",
->>>>>>> 19d4d6892ab6ccd621eec9798a927cb59e6ffa5e:HarbNet_GuiEdition/HarbNet_GuiEdition/obj/HarbNet_GuiEdition.csproj.nuget.dgspec.json
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,19 +31,18 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://int.nugettest.org/api/v2": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-android34.0": {
             "targetAlias": "net8.0-android",
             "projectReferences": {}
           },
-          "net8.0-ios17.2": {
+          "net8.0-ios17.0": {
             "targetAlias": "net8.0-ios",
             "projectReferences": {}
           },
-          "net8.0-maccatalyst17.2": {
+          "net8.0-maccatalyst17.0": {
             "targetAlias": "net8.0-maccatalyst",
             "projectReferences": {}
           },
@@ -70,11 +55,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -91,16 +71,16 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.3, )",
+              "version": "[8.0.1, )",
               "autoReferenced": true
             }
           },
@@ -123,9 +103,9 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         },
-        "net8.0-ios17.2": {
+        "net8.0-ios17.0": {
           "targetAlias": "net8.0-ios",
           "dependencies": {
             "Gruppe8.HarbNet": {
@@ -138,16 +118,16 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.3, )",
+              "version": "[8.0.1, )",
               "autoReferenced": true
             }
           },
@@ -170,9 +150,9 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         },
-        "net8.0-maccatalyst17.2": {
+        "net8.0-maccatalyst17.0": {
           "targetAlias": "net8.0-maccatalyst",
           "dependencies": {
             "Gruppe8.HarbNet": {
@@ -185,16 +165,16 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.3, )",
+              "version": "[8.0.1, )",
               "autoReferenced": true
             }
           },
@@ -218,7 +198,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-windows10.0.19041": {
           "targetAlias": "net8.0-windows10.0.19041.0",
@@ -233,11 +213,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.3, )"
             }
           },
           "imports": [
@@ -265,7 +245,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
