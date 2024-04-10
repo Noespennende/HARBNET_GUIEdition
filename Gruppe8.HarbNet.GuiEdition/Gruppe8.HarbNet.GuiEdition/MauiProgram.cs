@@ -1,6 +1,7 @@
 ﻿using Gruppe8.HarbNet;
 using Microsoft.Extensions.Logging;
 
+
 namespace Gruppe8.HarbNet.GuiEdition
 {
     public static class MauiProgram
