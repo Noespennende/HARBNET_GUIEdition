@@ -35,6 +35,21 @@ public partial class HarborCreatePage : ContentPage
     
 }
 
+    private void TextChanged(object sender, FocusEventArgs e)
+    {
+        if (sender is Entry entry)
+        {
+			if(!string.IsNullOrEmpty(entry.Text)){
+				if (!int.TryParse(entry.Text, out _))
+				{
+
+					DisplayAlert("Feil type", "Gi en gyldig heltallsverdi.", "OK");
+				}
+			}
+        }
+    }
+
+
 
 	private Harbor CreateHarborViewModel()
 	{

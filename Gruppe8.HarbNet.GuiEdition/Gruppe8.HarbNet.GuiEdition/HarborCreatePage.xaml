@@ -4,209 +4,80 @@
              x:Class="Gruppe8.HarbNet.GuiEdition.HarborCreatePage"
              Title="HarborCreatePage">
     <ScrollView>
-    <VerticalStackLayout Padding="30,0" Spacing="25">
-        <Label 
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Label 
             Text="Customize your harbor"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-            <Frame BackgroundColor="Azure">
-                <Image
+                <Frame BackgroundColor="Azure">
+                    <Image
                     BackgroundColor="Azure"
                     Source="dotnet_bot.png"
                     HeightRequest="185"
                     Aspect="AspectFit"
                     SemanticProperties.Description="dot net bot in a race car number eight" />
-            </Frame>
-        
-            <Label
-            Text="Customize your loading dock"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-            <Grid Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                </Frame>
+                <Grid Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="300" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-
-                <Entry
-                    Margin="10"
-                    Grid.Column="0"
-                    x:Name="NumberOfSmallLoadingDocks"
-                    Placeholder="Enter number of Small loading docks"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Center" 
-                    Text="{Binding NumberOfSmallLoadingDocks, Mode=TwoWay}"/>
-              
-
-                <Entry
-                    Margin="10"
-                    Grid.Column="1"
-                    x:Name="NumberOfMediumLoadingDocks"
-                    Placeholder="Enter number of Medium loading docks"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Center" 
-                    Text="{Binding NumberOfMediumLoadingDocks, Mode=TwoWay}"/>
-
-                <Entry
-                    Margin="10"
-                    Grid.Column="2"
-                    x:Name="NumberOfLargeLoadingDocks"
-                    Placeholder="Enter number of Large loading docks"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Center" 
-                    Text="{Binding NumberOfLargeLoadingDocks, Mode=TwoWay}"/>
+                <StackLayout Grid.Column="0" >
+                    <Label Text="Customize your loading dock" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Grid.Column="0" x:Name="NumberOfSmallLoadingDocks" Placeholder="Number of Small loading docks" Text="{Binding NumberOfSmallLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged" />
+                    <Entry Grid.Column="0" x:Name="NumberOfMediumLoadingDocks" Placeholder="Number of Medium loading docks" Text="{Binding NumberOfMediumLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Grid.Column="0" x:Name="NumberOfLargeLoadingDocks" Placeholder="Number of Large loading docks" Text="{Binding NumberOfLargeLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                </StackLayout>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0" >
+                    <Label Text="Customize the cranes at your harbor" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfCranesNextToLoadingDocks" Placeholder="Number of cranes next to loading docks" Text="{Binding NumberOfCranesNextToLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="NumberOfLoadsPerCranePerHour" Placeholder="Number of Crane Loads per hour" Text="{Binding NumberOfLoadsPerCranePerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="2" x:Name="NumberOfCranesOnHarborStorageArea" Placeholder="Number of cranes on harbor storage" Text="{Binding NumberOfCranesOnHarborStorageArea, Mode=TwoWay}" Unfocused="TextChanged"/>
+                </StackLayout>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0" >
+                    <Label Text="Customize your ship Docks" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfSmallShipDocks" Placeholder="Number of small ship docks" Text="{Binding NumberOfSmallShipDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="NumberOfMediumShipDocks" Placeholder="Number of Medium ship docks" Text="{Binding NumberOfMediumShipDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="2" x:Name="NumberOfLargeShipDocks" Placeholder="Number of Large ship docks" Text="{Binding NumberOfLargeShipDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                </StackLayout>
             </Grid>
 
-            <Label
-            Text="Customize the cranes at your harbor"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-            <Grid Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="300" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-
-                <Entry
-            Margin="10"
-            Grid.Column="0"
-            x:Name="NumberOfCranesNextToLoadingDocks"
-            Placeholder="Enter number of cranes next to loading docks"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            Text="{Binding NumberOfCranesNextToLoadingDocks, Mode=TwoWay}"/>
-
-                <Entry
-            Margin="10"
-            Grid.Column="1"
-            x:Name="NumberOfLoadsPerCranePerHour"
-            Placeholder="Enter number of Loads a Crane can do per hour"
-            HorizontalOptions="Center"
-            VerticalOptions="Center" 
-            Text="{Binding NumberOfLoadsPerCranePerHour, Mode=TwoWay}"/>
-
-                <Entry
-            Margin="10"
-            Grid.Column="2"
-            x:Name="NumberOfCranesOnHarborStorageArea"
-            Placeholder="Enter number of cranes on harbor storage area"
-            HorizontalOptions="Center"
-            VerticalOptions="Center" 
-            Text="{Binding NumberOfCranesOnHarborStorageArea, Mode=TwoWay}"/>
+                <StackLayout Grid.Column="0" >
+                    <Label Text="Customize the Trucks at your harbor" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfTrucksArriveToHarborPerHour" Placeholder="Number of trucks that arrive per hour" Text="{Binding NumberOfTrucksArriveToHarborPerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="PercentageOfContainersDirectlyLoadedFromShipToTrucks" Placeholder="Percentage of Ship containers for trucks " Text="{Binding PercentageOfContainersDirectlyLoadedFromShipToTrucks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="2" x:Name="PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks" Placeholder="Percentage Storage containers for trucks" Text="{Binding PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                </StackLayout>
             </Grid>
-        
-            <Label
-            Text="Customize your ship Docks"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-            <Grid Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="300" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-
-        <Entry
-            Margin="10"
-            Grid.Column="0"
-            x:Name="NumberOfSmallShipDocks"
-            Placeholder="Enter number of small ship docks"
-            HorizontalOptions="Center"
-            VerticalOptions="Center" 
-            Text="{Binding NumberOfSmallShipDocks, Mode=TwoWay}"/>
-
-        <Entry
-            Margin="10"
-            Grid.Column="1"
-            x:Name="NumberOfMediumShipDocks"
-            Placeholder="Enter number of Medium ship docks"
-            HorizontalOptions="Center"
-            VerticalOptions="Center" 
-            Text="{Binding NumberOfMediumShipDocks, Mode=TwoWay}"/>
-
-        <Entry
-            Margin="10"
-            Grid.Column="2"
-            x:Name="NumberOfLargeShipDocks"
-            Placeholder="Enter number of Large ship docks"
-            HorizontalOptions="Center"
-            VerticalOptions="Center" 
-            Text="{Binding NumberOfLargeShipDocks, Mode=TwoWay}"/>
-                
-            </Grid>
-            <Label
-            Text="Customize the Trucks at your harbor"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-            <Grid Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Entry
-                    Margin="10"
-                    Grid.Column="0"
-                    x:Name="NumberOfTrucksArriveToHarborPerHour"
-                    Placeholder="Enter number of trucks that arrive per hour"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" 
-                    Text="{Binding NumberOfTrucksArriveToHarborPerHour, Mode=TwoWay}"/>
-
-                <Entry
-                    Margin="10"
-                    Grid.Column="1"
-                    x:Name="PercentageOfContainersDirectlyLoadedFromShipToTrucks"
-                    Placeholder="Enter percentage of containers for trucks from ships"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" 
-                    Text="{Binding PercentageOfContainersDirectlyLoadedFromShipToTrucks, Mode=TwoWay}"/>
-
-                <Entry
-                    Margin="10"
-                    Grid.Column="2"
-                    x:Name="PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks"
-                    Placeholder="Enter percentage of containers for trucks from storage"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" 
-                    Text="{Binding PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks, Mode=TwoWay}"/>
-            </Grid>
-
-            <Label
-                Text="Customize the ADV's at your harbor"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-            <Grid Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-
-                </Grid.ColumnDefinitions>
-                <Entry
-                    Margin="10"
-                    Grid.Column="0"
-                    x:Name="NumberOfAdv"
-                    Placeholder="Enter number of ADV"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" 
-                    Text="{Binding NumberOfAdv, Mode=TwoWay}"/>
-
-                <Entry
-                    Margin="10"
-                    Grid.Column="1"
-                    x:Name="LoadsPerAdvPerHour"
-                    Placeholder="Enter number of loads per adv per hour"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" 
-                    Text="{Binding LoadsPerAdvPerHour, Mode=TwoWay}"/>
+                <StackLayout Grid.Column="0" >
+                    <Label Text="Customize the ADV's at your harbor" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfAdv" Placeholder="Number of ADV"  Text="{Binding NumberOfAdv, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="LoadsPerAdvPerHour" Placeholder="Number of loads per adv per hour"  Text="{Binding LoadsPerAdvPerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
+                </StackLayout>
             </Grid>
             <Button Text="Create Harbor" Clicked="OnCreateHarborClicked" />
-            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
