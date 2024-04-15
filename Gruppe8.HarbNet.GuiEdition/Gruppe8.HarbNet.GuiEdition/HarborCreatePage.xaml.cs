@@ -12,28 +12,7 @@ public partial class HarborCreatePage : ContentPage
 		BindingContext = viewModel;
 	}
 
-	private async void OnCreateHarborClicked(object sender, EventArgs e)
-	{
-		try
-		{
-			Console.WriteLine("du klikket meg");
-			Harbor createdHarbor = CreateHarborViewModel();
 
-			if (createdHarbor != null)
-			{
-				Console.WriteLine("harbor created");
-                string harborInfo = $"Harbor created with ID: {createdHarbor.ID}, Name:, etc.";
-               
-                MainPage mainPage = new MainPage();
-
-			}
-
-		}catch (Exception ex)
-		{
-			//
-		}
-    
-}
 
 
 	private Harbor CreateHarborViewModel()
