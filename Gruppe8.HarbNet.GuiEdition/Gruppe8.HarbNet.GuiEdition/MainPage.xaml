@@ -7,6 +7,7 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <!--Venstre side layout-->
             <Image
                 Source="harbnet.png"
                 HeightRequest="185"
@@ -33,7 +34,8 @@
                 Text="Run simulation" 
                 SemanticProperties.Hint="The simulation will now run"
                 Clicked="OnSimulationClicked"
-                HorizontalOptions="Fill" />     
+                HorizontalOptions="Fill" />
+            <!--Høyre side-->
         </VerticalStackLayout>
     </ScrollView>
 
