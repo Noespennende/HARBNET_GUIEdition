@@ -96,9 +96,13 @@ namespace Gruppe8.HarbNet.GuiEdition
         {
             try
             {
+                DateTime currenttime = DateTime.Now;
+                int SimulationStart = int.Parse(viewModel.SimulationStart);
+                int SimulationEnd = int.Parse(viewModel.SimulationEnd);
+                int numberOfDaysSimulated = SimulationEnd - SimulationStart;
                 Guid numberOfSmallLoadingDocks = harbor.ID;
-                Simulation sim = new(harbor, new DateTime(2024, 4, 4), new DateTime(2024, 4, 20));
-                SimulationClick.Text = $"Du kjører nå simuleringen i 16 dager {numberOfSmallLoadingDocks}";
+                Simulation sim = new(harbor, currenttime.AddDays(SimulationStart) , currenttime.AddDays(SimulationEnd));
+                SimulationClick.Text = $"Du kjører nå simuleringen i {numberOfDaysSimulated} dager {numberOfSmallLoadingDocks}";
 
                 SemanticScreenReader.Announce(SimulationClick.Text);
                 

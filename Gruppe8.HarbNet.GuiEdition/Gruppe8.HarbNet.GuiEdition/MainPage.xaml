@@ -8,36 +8,23 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Image Grid.Row="0" Grid.ColumnSpan="2" Source="harbnet.png" HeightRequest="185" />
+        
         <ScrollView Grid.Column="0" Grid.Row="1">
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
             <!--Venstre side layout-->
 
-
+                <Image Source="harbnet.png" />
                 <Label
                 Text="HarbNet"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-                <Entry
-                x:Name="SimulationParametersEntry"
-                Placeholder="Enter Parameter here"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center" />
-            <Button
-                x:Name="SimulationClick"
-                Text="Run simulation" 
-                SemanticProperties.Hint="The simulation will now run"
-                Clicked="OnSimulationClicked"
-                HorizontalOptions="Fill" />
-                     <!--LoadingDock-->
+                <Entry x:Name="SimulationStart" Placeholder="SimulationStart" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding SimulationStart, Mode=TwoWay}" />
+                <Entry x:Name="SimulationEnd" Placeholder="SimulationEnd" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding SimulationEnd, Mode=TwoWay}"/>
+                <Button x:Name="SimulationClick" Text="Run simulation" SemanticProperties.Hint="The simulation will now run" Clicked="OnSimulationClicked" HorizontalOptions="Fill" />
+                <!--LoadingDock-->
                     <Label Text="Customize your loading dock" VerticalOptions="Center" HorizontalOptions="Center" />
                     <Entry Grid.Column="0" x:Name="NumberOfSmallLoadingDocks" Placeholder="Number of Small loading docks" Text="{Binding NumberOfSmallLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged" />
                     <Entry Grid.Column="0" x:Name="NumberOfMediumLoadingDocks" Placeholder="Number of Medium loading docks" Text="{Binding NumberOfMediumLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
@@ -62,13 +49,12 @@
                     <Entry Margin="10" Grid.Column="0" x:Name="NumberOfAdv" Placeholder="Number of ADV"  Text="{Binding NumberOfAdv, Mode=TwoWay}" Unfocused="TextChanged"/>
                     <Entry Margin="10" Grid.Column="1" x:Name="LoadsPerAdvPerHour" Placeholder="Number of loads per adv per hour"  Text="{Binding LoadsPerAdvPerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
              
-            <Button Text="Create Harbor" Clicked="OnCreateHarborClicked" />
+            <Button x:Name="harborClick" Text="Create Harbor" Clicked="OnCreateHarborClicked" />
         </VerticalStackLayout>
         </ScrollView>
 
-
         <!--Høyre side-->
-    <CollectionView Grid.Column="1" Grid.Row="1" >
+    <CollectionView Grid.Column="1"  Grid.RowSpan="2" >
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
                 <x:String>Item 1</x:String>
