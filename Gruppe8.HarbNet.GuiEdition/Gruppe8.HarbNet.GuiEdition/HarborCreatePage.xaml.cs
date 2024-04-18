@@ -35,7 +35,7 @@ public partial class HarborCreatePage : ContentPage
     
 }
 
-    private void TextChanged(object sender, FocusEventArgs e)
+    private void TEXTChanged(object sender, FocusEventArgs e)
     {
         if (sender is Entry entry)
         {

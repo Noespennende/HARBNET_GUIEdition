@@ -3,44 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Gruppe8.HarbNet.GuiEdition.MainPage">
 
-    <ScrollView>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        
+        <ScrollView Grid.Column="0" Grid.Row="1">
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
             <!--Venstre side layout-->
-            <Image
-                Source="harbnet.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="" />
 
-            <Label
+                <Image Source="harbnet.png" />
+                <Label
                 Text="HarbNet"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-            <Button
-                Text="Go to Next Page"
-                Clicked="OnNextPageClicked"
-                HorizontalOptions="Fill" /> 
-   
-            <Entry
-                x:Name="SimulationParametersEntry"
-                Placeholder="Enter Parameter here"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center" />
-            <Button
-                x:Name="SimulationClick"
-                Text="Run simulation" 
-                SemanticProperties.Hint="The simulation will now run"
-                Clicked="OnSimulationClicked"
-                HorizontalOptions="Fill" />
+                <Entry x:Name="SimulationStart" Placeholder="SimulationStart" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding SimulationStart, Mode=TwoWay}" />
+                <Entry x:Name="SimulationEnd" Placeholder="SimulationEnd" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding SimulationEnd, Mode=TwoWay}"/>
+                <Button x:Name="SimulationClick" Text="Run simulation" SemanticProperties.Hint="The simulation will now run" Clicked="OnSimulationClicked" HorizontalOptions="Fill" />
+                <!--LoadingDock-->
+                    <Label Text="Customize your loading dock" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Grid.Column="0" x:Name="NumberOfSmallLoadingDocks" Placeholder="Number of Small loading docks" Text="{Binding NumberOfSmallLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged" />
+                    <Entry Grid.Column="0" x:Name="NumberOfMediumLoadingDocks" Placeholder="Number of Medium loading docks" Text="{Binding NumberOfMediumLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Grid.Column="0" x:Name="NumberOfLargeLoadingDocks" Placeholder="Number of Large loading docks" Text="{Binding NumberOfLargeLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <!--Cranes-->
+                    <Label Text="Customize the cranes at your harbor" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfCranesNextToLoadingDocks" Placeholder="Number of cranes next to loading docks" Text="{Binding NumberOfCranesNextToLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="NumberOfLoadsPerCranePerHour" Placeholder="Number of Crane Loads per hour" Text="{Binding NumberOfLoadsPerCranePerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="2" x:Name="NumberOfCranesOnHarborStorageArea" Placeholder="Number of cranes on harbor storage" Text="{Binding NumberOfCranesOnHarborStorageArea, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <!--shipdocks-->
+                    <Label Text="Customize your ship Docks" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfSmallShipDocks" Placeholder="Number of small ship docks" Text="{Binding NumberOfSmallShipDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="NumberOfMediumShipDocks" Placeholder="Number of Medium ship docks" Text="{Binding NumberOfMediumShipDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="2" x:Name="NumberOfLargeShipDocks" Placeholder="Number of Large ship docks" Text="{Binding NumberOfLargeShipDocks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <!--trucks-->
+                    <Label Text="Customize the Trucks at your harbor" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfTrucksArriveToHarborPerHour" Placeholder="Number of trucks that arrive per hour" Text="{Binding NumberOfTrucksArriveToHarborPerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="PercentageOfContainersDirectlyLoadedFromShipToTrucks" Placeholder="Percentage of Ship containers for trucks " Text="{Binding PercentageOfContainersDirectlyLoadedFromShipToTrucks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="2" x:Name="PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks" Placeholder="Percentage Storage containers for trucks" Text="{Binding PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <!--ADV-->
+                    <Label Text="Customize the ADV's at your harbor" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfAdv" Placeholder="Number of ADV"  Text="{Binding NumberOfAdv, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="LoadsPerAdvPerHour" Placeholder="Number of loads per adv per hour"  Text="{Binding LoadsPerAdvPerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
+             
+            <Button x:Name="harborClick" Text="Create Harbor" Clicked="OnCreateHarborClicked" />
         </VerticalStackLayout>
-    </ScrollView>
+        </ScrollView>
 
-    <!--Høyre side-->
-    <CollectionView >
-
+        <!--Høyre side-->
+    <CollectionView Grid.Column="1"  Grid.RowSpan="2" >
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
                 <x:String>Item 1</x:String>
@@ -60,5 +74,6 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
-
+    
+    </Grid>
 </ContentPage>

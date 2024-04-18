@@ -10,6 +10,34 @@ namespace Gruppe8.HarbNet.GuiEdition.ViewModel
     internal class HarborCreateView : INotifyPropertyChanged
     {
 
+        private String _SimulationStart;
+        public String SimulationStart
+        {
+            get { return _SimulationStart; }
+            set
+            {
+                if (_SimulationStart != value)
+                {
+                    _SimulationStart = value;
+                    onPropertyChanged(nameof(SimulationStart));
+                }
+            }
+        }
+
+        private String _SimulationEnd;
+        public String SimulationEnd
+        {
+            get { return _SimulationEnd; }
+            set
+            {
+                if (_SimulationEnd != value)
+                {
+                    _SimulationEnd = value;
+                    onPropertyChanged(nameof(SimulationEnd));
+                }
+            }
+        }
+
         private string _NumberOfSmallLoadingDocks;
         public string NumberOfSmallLoadingDocks
 
