@@ -1,4 +1,6 @@
 ﻿
+using Gruppe8.HarbNet.GuiEdition.ViewModel;
+
 namespace Gruppe8.HarbNet.GuiEdition
 {
     public partial class MainPage : ContentPage
@@ -6,9 +8,10 @@ namespace Gruppe8.HarbNet.GuiEdition
         int count = 0;
         Harbor harbor;
 
-        public MainPage()
+        public MainPage(ConsoleViewModel cvm)
         {
-            InitializeComponent();  
+            InitializeComponent();
+            BindingContext = cvm;
         
         }
 

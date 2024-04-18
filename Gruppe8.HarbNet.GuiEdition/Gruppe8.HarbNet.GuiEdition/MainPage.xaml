@@ -40,6 +40,7 @@
 
     <!--Høyre side-->
     <CollectionView >
+
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
                 <x:String>Item 1</x:String>
