@@ -104,9 +104,91 @@ namespace Gruppe8.HarbNet.GuiEdition
                 int numberOfDaysSimulated = SimulationEnd - SimulationStart;
                 Guid numberOfSmallLoadingDocks = harbor.ID;
                 Simulation sim = new(harbor, currenttime.AddDays(SimulationStart) , currenttime.AddDays(SimulationEnd));
-                SimulationClick.Text = $"Du kjører nå simuleringen i {numberOfDaysSimulated} dager {numberOfSmallLoadingDocks}";
 
+                //abonerer på events
+                sim.SimulationStarting += (sender, e) =>
+                {
+                    SimulationStartingEventArgs args = (SimulationStartingEventArgs)e;
+                    viewModel.AddToConsole($"▶️ SIMULATION STARTING 🖥️\n" +
+                        $"Simulating from day {SimulationStart} to day {SimulationEnd}");
+                };
+                sim.ShipAnchored += (sender, e) =>
+                {
+                    ShipAnchoredEventArgs args = (ShipAnchoredEventArgs)e;
+                    viewModel.AddToConsole($"🚢 ⚓\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} anchored to anchorage");
+                };
+                sim.ShipDockedtoLoadingDock += (sender, e) =>
+                {
+                    ShipDockedToLoadingDockEventArgs args = (ShipDockedToLoadingDockEventArgs)e;
+                    viewModel.AddToConsole($"🚢 ⚓ 🏗\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} docked to loading dock");
+                };
+                sim.ShipDockedToShipDock += (sender, e) =>
+                {
+                    ShipDockedToShipDockEventArgs args = (ShipDockedToShipDockEventArgs)e;
+                    viewModel.AddToConsole($"🚢 ⚓ 🛳️\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} docked to ship dock");
+                };
+                sim.ShipUndocking += (sender, e) =>
+                {
+                    ShipUndockingEventArgs args = (ShipUndockingEventArgs)e;
+                    viewModel.AddToConsole($"🚢 ⬅️ 🏗\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} undocking.");
+                };
+                sim.ShipLoadedContainer += (sender, e) =>
+                {
+                    ShipLoadedContainerEventArgs args = (ShipLoadedContainerEventArgs)e;
+                    viewModel.AddToConsole($"🏗 ➡️ 📦 🚢\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} loaded a {args.Container.Size} size container from crane");
+                };
+                sim.ShipUnloadedContainer += (sender, e) =>
+                {
+                    ShipUnloadedContainerEventArgs args = (ShipUnloadedContainerEventArgs)e;
+                    viewModel.AddToConsole($"🚢 ➡️ 📦 🏗️\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} unloaded a {args.Container.Size} size container to crane");
+                };
+                sim.ShipInTransit += (sender, e) =>
+                {
+                    ShipInTransitEventArgs args = (ShipInTransitEventArgs)e;
+                    viewModel.AddToConsole($"🌎 ⬅️ 🚢\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} is in transit");
+                };
+                sim.TruckLoadingFromStorage += (sender, e) =>
+                {
+                    TruckLoadingFromStorageEventArgs args = (TruckLoadingFromStorageEventArgs)e;
+                    viewModel.AddToConsole($"🏗 ➡️ 📦 🚚\n" +
+                        $"{args.CurrentTime}: A truck has loaded a container and helft the harbor");
+                };
+                sim.DayEnded += (sender, e) =>
+                {
+                    DayOverEventArgs args = (DayOverEventArgs)e;
+                    viewModel.AddToConsole($"--------------------\n" +
+                        $"🌅 ⬇️ {args.CurrentTime} DAY OVER ⬇️ 🌅\n" +
+                        $"INSERT STATS HERE!!!!\n");
+
+                };
+                sim.OneHourHasPassed += (sender, e) =>
+                {
+                    OneHourHasPassedEventArgs args = (OneHourHasPassedEventArgs)e;
+                    Console.WriteLine($"🕑 New hour {args.CurrentTime.TimeOfDay} 🕑");
+
+                };
+
+                sim.SimulationEnded += (sender, e) =>
+                {
+                    SimulationEndedEventArgs args = (SimulationEndedEventArgs)e;
+                    viewModel.AddToConsole($"⏸️ SIMULATION OVER 🖥️\n" +
+                        $"INSERT STATS HERE!!!!");
+                };
+
+
+
+
+                    SimulationClick.Text = $"Du kjører nå simuleringen i {numberOfDaysSimulated} dager {numberOfSmallLoadingDocks}";
                 SemanticScreenReader.Announce(SimulationClick.Text);
+                sim.Run();
+
                 
             }
             catch (Exception ex)

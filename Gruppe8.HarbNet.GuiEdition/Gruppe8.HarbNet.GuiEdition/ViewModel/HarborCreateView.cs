@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,21 @@ namespace Gruppe8.HarbNet.GuiEdition.ViewModel
     {
 
         private String _SimulationStart;
+
+        private ObservableCollection<string> items = new ObservableCollection<string>();
+
+        public ObservableCollection<String> Items
+        {
+            get { return items; }
+            set { 
+                if(items != value)
+                {
+                    items = value;
+                    onPropertyChanged(nameof(Items));
+                }
+            }
+        }
+
         public String SimulationStart
         {
             get { return _SimulationStart; }
@@ -246,6 +263,13 @@ namespace Gruppe8.HarbNet.GuiEdition.ViewModel
                     onPropertyChanged(nameof(LoadsPerAdvPerHour));
                 }
             }
+        }
+
+        //Console
+        public void AddToConsole(String consoleOutput)
+        {
+            if (string.IsNullOrWhiteSpace(consoleOutput)) { return; }
+            items.Add(consoleOutput);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
