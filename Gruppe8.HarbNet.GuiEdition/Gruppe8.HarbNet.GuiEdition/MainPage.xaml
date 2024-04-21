@@ -60,7 +60,8 @@
             <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="{x:Type x:String}">
                 <Grid Padding="0,5">
-                    <Frame>
+                    <Frame Margin="20,0"
+                           BackgroundColor="#06467B">
                         <Label Text="{Binding .}"
                                FontSize="20"
                                />
