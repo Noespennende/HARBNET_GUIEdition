@@ -20,7 +20,12 @@
                 Text="HarbNet"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
-
+            
+                    <Label Text="Amount of ships" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Grid.Column="0" x:Name="NumberOfSmallShips" Placeholder="Number of Small Ships" Text="{Binding NumberOfSmallShips, Mode=TwoWay}" Unfocused="TextChanged" />
+                <Entry Grid.Column="0" x:Name="NumberOfMediumShips" Placeholder="Number of Medium Ships" Text="{Binding NumberOfMediumShips, Mode=TwoWay}" Unfocused="TextChanged"/>
+                <Entry Grid.Column="0" x:Name="NumberOfLargeShips" Placeholder="Number of Large Ships" Text="{Binding NumberOfLargeShips, Mode=TwoWay}" Unfocused="TextChanged"/>
+                <Button Text="Create ships" Clicked="OnCreateShipsClicked" />
                 <!--LoadingDock-->
                     <Label Text="Customize your loading dock" VerticalOptions="Center" HorizontalOptions="Center" />
                     <Entry Grid.Column="0" x:Name="NumberOfSmallLoadingDocks" Placeholder="Number of Small loading docks" Text="{Binding NumberOfSmallLoadingDocks, Mode=TwoWay}" Unfocused="TextChanged" />

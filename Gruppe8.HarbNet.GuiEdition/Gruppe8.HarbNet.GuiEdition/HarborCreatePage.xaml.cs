@@ -24,7 +24,7 @@ public partial class HarborCreatePage : ContentPage
 				Console.WriteLine("harbor created");
                 string harborInfo = $"Harbor created with ID: {createdHarbor.ID}, Name:, etc.";
 				ConsoleViewModel cvm = new ConsoleViewModel();
-                MainPage mainPage = new MainPage(cvm);
+				MainPage mainPage = new MainPage(cvm);
 
 			}
 

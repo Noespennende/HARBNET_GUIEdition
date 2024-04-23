@@ -12,6 +12,7 @@ namespace Gruppe8.HarbNet.GuiEdition.ViewModel
     internal class HarborCreateView : INotifyPropertyChanged
     {
 
+
         private String _SimulationStart;
 
         private ObservableCollection<string> items = new ObservableCollection<string>();
@@ -24,6 +25,48 @@ namespace Gruppe8.HarbNet.GuiEdition.ViewModel
                 {
                     items = value;
                     onPropertyChanged(nameof(Items));
+                }
+            }
+        }
+        private String _NumberOfSmallShips;
+        public String NumberOfSmallShips
+        {
+            get { return _NumberOfSmallShips; }
+            set
+            {
+                if (_NumberOfSmallShips != value)
+                {
+                    _NumberOfSmallShips = value;
+                    onPropertyChanged(nameof(NumberOfSmallShips));
+                }
+            }
+        }
+
+        private String _NumberOfMediumShips;
+
+        public String NumberOfMediumShips
+        {
+            get { return _NumberOfMediumShips; }
+            set
+            {
+                if (_NumberOfMediumShips != value)
+                {
+                    _NumberOfMediumShips = value;
+                    onPropertyChanged(nameof(NumberOfMediumShips));
+                }
+            }
+        }
+        private String _NumberOfLargeShips;
+
+        public String NumberOfLargeShips
+        {
+            get { return _NumberOfLargeShips; }
+            set
+            {
+                if (_NumberOfLargeShips != value)
+                {
+                    _NumberOfLargeShips = value;
+                    onPropertyChanged(nameof(NumberOfLargeShips));
                 }
             }
         }
