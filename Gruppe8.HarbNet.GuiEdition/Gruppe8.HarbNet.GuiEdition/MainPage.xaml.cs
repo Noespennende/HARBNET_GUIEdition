@@ -16,6 +16,7 @@ namespace Gruppe8.HarbNet.GuiEdition
         int ContainersExitedHarborOnTrucks = 0;
         int ContainersExitedHarborOnShips = 0;
         int shipsDocked = 0;
+        int hoursPassed = 0;
         DateTime currenttime = DateTime.Now;
         List<Ship> ships = new List<Ship>();
 
@@ -194,7 +195,6 @@ namespace Gruppe8.HarbNet.GuiEdition
                     SimulationStartingEventArgs args = (SimulationStartingEventArgs)e;
                     viewModel.AddToConsole($"▶️ SIMULATION STARTING 🖥️\n" +
                         $"Simulating from day {SimulationStart} to day {SimulationEnd}");
-                    Thread.Sleep(100);
                 };
                 sim.ShipAnchored += (sender, e) =>
                 {
@@ -208,7 +208,6 @@ namespace Gruppe8.HarbNet.GuiEdition
                     viewModel.AddToConsole($"🚢 ⚓ 🏗\n" +
                         $"{args.CurrentTime}: {args.Ship.Name} docked to loading dock");
                     shipsDocked++;
-                    Thread.Sleep(100);
                 };
                 sim.ShipDockedToShipDock += (sender, e) =>
                 {
@@ -226,15 +225,69 @@ namespace Gruppe8.HarbNet.GuiEdition
                 sim.ShipLoadedContainer += (sender, e) =>
                 {
                     ShipLoadedContainerEventArgs args = (ShipLoadedContainerEventArgs)e;
-                    viewModel.AddToConsole($"🏗 ➡️ 📦 🚢\n" +
-                        $"{args.CurrentTime}: {args.Ship.Name} loaded a {args.Container.Size} size container from crane");
                     ContainersExitedHarborOnShips++;
                 };
+
+
+                sim.ShipStartingLoading += (sender, e) =>
+                {
+                    ShipStartingLoadingEventArgs args = (ShipStartingLoadingEventArgs)e;
+                    viewModel.AddToConsole($"🏗 ➡️ 📦 🚢\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} started loading containers from harbor to its cargohold.");
+                };
+
+                sim.ShipDoneLoading += (sender, e) =>
+                {
+                    ShipDoneLoadingEventArgs args = (ShipDoneLoadingEventArgs)e;
+                    int half = 0;
+                    int full = 0;
+                    foreach (Container c in args.Ship.ContainersOnBoard)
+                    {
+                        if (c.Size == ContainerSize.Half)
+                        {
+                            half++;
+                        } else
+                        {
+                            full++;
+                        }
+                    }
+                    viewModel.AddToConsole($"🏗 ➡️ 📦 🚢 ✅\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} is done loading containers from harbor.\n" +
+                        $"Current cargo: {full} full size containers, {half} half size containers.");
+
+                };
+
+                sim.ShipStartingUnloading += (sender, e) =>
+                {
+                    ShipStartingUnloadingEventArgs args = (ShipStartingUnloadingEventArgs)e;
+                    int half = 0;
+                    int full = 0;
+                    foreach (Container c in args.Ship.ContainersOnBoard)
+                    {
+                        if (c.Size == ContainerSize.Half)
+                        {
+                            half++;
+                        }
+                        else
+                        {
+                            full++;
+                        }
+                    }
+                    viewModel.AddToConsole($"🚢 ➡️ 📦 🏗️\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} has started unloading {full} size containers and {half} size containers to harbor crane.\n" +
+                        $"A total of {args.Ship.ContainersOnBoard.Count} containers.");
+                };
+
+                sim.ShipDoneUnloading += (sender, e) =>
+                {
+                    ShipDoneUnloadingEventArgs args = (ShipDoneUnloadingEventArgs)e;
+                    viewModel.AddToConsole($"🚢 ➡️ 📦 🏗️ ✅\n" +
+                        $"{args.CurrentTime}: {args.Ship.Name} is done unloading its cargo.");
+                };
+
                 sim.ShipUnloadedContainer += (sender, e) =>
                 {
                     ShipUnloadedContainerEventArgs args = (ShipUnloadedContainerEventArgs)e;
-                    viewModel.AddToConsole($"🚢 ➡️ 📦 🏗️\n" +
-                        $"{args.CurrentTime}: {args.Ship.Name} unloaded a {args.Container.Size} size container to crane");
                     ContainersEnteredHarbor++;
                 };
                 sim.ShipInTransit += (sender, e) =>
@@ -269,6 +322,7 @@ namespace Gruppe8.HarbNet.GuiEdition
                 {
                     OneHourHasPassedEventArgs args = (OneHourHasPassedEventArgs)e;
                     viewModel.AddToConsole($"🕑 New hour {args.CurrentTime.TimeOfDay.Hours} 🕑");
+                    hoursPassed++;
                 };
 
                 sim.SimulationEnded += (sender, e) =>
@@ -278,13 +332,16 @@ namespace Gruppe8.HarbNet.GuiEdition
                     viewModel.AddToConsole($"⏸️ SIMULATION OVER 🖥️\n\n" +
                         $"Harbor efficency stats:\n" +
                         $"-------------------------\n" +
-                        $"Containers entered harbor: {ContainersEnteredHarbor}\n" +
-                        $"Containers exited harbor on trucks: {ContainersExitedHarborOnTrucks}\n" +
-                        $"containers exited harbor on ships: {ContainersExitedHarborOnShips}\n" +
-                        $"Ships docked to harbor: {shipsDocked}\n" +
+                        $"Total containers entered harbor: {ContainersEnteredHarbor}\n" +
+                        $"Total containers exited harbor on trucks: {ContainersExitedHarborOnTrucks}\n" +
+                        $"Total containers exited harbor on ships: {ContainersExitedHarborOnShips}\n" +
+                        $"Total ship dockings to harbor: {shipsDocked}\n" +
+                        $"Average containers entered harbor per hour: {(float)Math.Round((float)ContainersEnteredHarbor/hoursPassed, 2)}\n" +
+                        $"Average containers exited harbor per hour on ships: {(float)Math.Round((float)ContainersExitedHarborOnShips/hoursPassed, 2)}\n" +
+                        $"Average containers exited harbor per hour on trucks: {(float)Math.Round((float)ContainersExitedHarborOnTrucks/hoursPassed, 2)}\n" +
                         $"\nCurrently:\n" +
                         $"-------------------------\n" +
-                        $"Containers stored in harbor: {sim.History[sim.History.Count-1].ContainersInHarbour.Count}\n" +
+                        $"Containers stored in harbor: {sim.History[sim.History.Count].ContainersInHarbour.Count}\n" +
                         $"Ships docked to loading docks: {sim.History[sim.History.Count - 1].ShipsDockedInLoadingDocks.Count}\n" +
                         $"Ships docked to ship docks: {sim.History[sim.History.Count - 1].ShipsDockedInShipDocks.Count}\n" +
                         $"Ships anchored in anchorage: {sim.History[sim.History.Count - 1].ShipsInAnchorage.Count}\n" +
