@@ -141,18 +141,16 @@ namespace Gruppe8.HarbNet.GuiEdition
                 int percentageOfContainersDirectlyLoadedFromHarborStorageToTrucks = int.Parse(viewModel.PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks);
                 int numberOfAdv = int.Parse(viewModel.NumberOfAdv);
                 int loadsPerAdvPerHour = int.Parse(viewModel.LoadsPerAdvPerHour);
-               
-                List<Ship> shiplist = new List<Ship>(5)
-                {
-                };
-                
-                List<ContainerStorageRow> listOfContainerStorageRows = new List<ContainerStorageRow>(5);
+
+                List<ContainerStorageRow> listOfContainerStorageRows = new List<ContainerStorageRow>(100);
+                ContainerStorageRow storage = new ContainerStorageRow(100);
+                listOfContainerStorageRows.Add(storage);
 
                 harbor = new Harbor(ships, listOfContainerStorageRows, numberOfSmallLoadingDocks, numberOfMediumLoadingDocks, numberOfLargeLoadingDocks,
                     numberOfCranesNextToLoadingDocks, numberOfLoadsPerCranePerHour, numberOfCranesOnHarborStorageArea, numberOfSmallShipDocks,
                     numberOfMediumShipDocks, numberOfLargeShipDocks, numberOfTrucksArriveAtHarborPerHour, percentageOfContainersDirectlyLoadedFromShipToTrucks,
                     percentageOfContainersDirectlyLoadedFromHarborStorageToTrucks, numberOfAdv, loadsPerAdvPerHour);
-                DisplayAlert("Ships in shiplist:", $"{shiplist.Count}", "ok");
+                
                 return harbor;
                
             }
