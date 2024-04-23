@@ -1,5 +1,7 @@
 ﻿
 using Gruppe8.HarbNet.GuiEdition.ViewModel;
+using System.Threading;
+
 
 namespace Gruppe8.HarbNet.GuiEdition
 {
@@ -139,13 +141,9 @@ namespace Gruppe8.HarbNet.GuiEdition
                 int percentageOfContainersDirectlyLoadedFromHarborStorageToTrucks = int.Parse(viewModel.PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks);
                 int numberOfAdv = int.Parse(viewModel.NumberOfAdv);
                 int loadsPerAdvPerHour = int.Parse(viewModel.LoadsPerAdvPerHour);
-                
-                Ship ship = new Ship("Ape", ShipSize.Large, currenttime.AddDays(1), false, 5, 5, 5);
-
+               
                 List<Ship> shiplist = new List<Ship>(5)
                 {
-                    ship,
-                    new Ship("test1", ShipSize.Large, currenttime.AddDays(1), false, 5,5,5)
                 };
                 
                 List<ContainerStorageRow> listOfContainerStorageRows = new List<ContainerStorageRow>(5);
@@ -154,7 +152,7 @@ namespace Gruppe8.HarbNet.GuiEdition
                     numberOfCranesNextToLoadingDocks, numberOfLoadsPerCranePerHour, numberOfCranesOnHarborStorageArea, numberOfSmallShipDocks,
                     numberOfMediumShipDocks, numberOfLargeShipDocks, numberOfTrucksArriveAtHarborPerHour, percentageOfContainersDirectlyLoadedFromShipToTrucks,
                     percentageOfContainersDirectlyLoadedFromHarborStorageToTrucks, numberOfAdv, loadsPerAdvPerHour);
-                DisplayAlert("Oi", $"{shiplist.Count}", "ok");
+                DisplayAlert("Ships in shiplist:", $"{shiplist.Count}", "ok");
                 return harbor;
                
             }
@@ -189,6 +187,7 @@ namespace Gruppe8.HarbNet.GuiEdition
                 int SimulationEnd = int.Parse(viewModel.SimulationEnd);
                 int numberOfDaysSimulated = SimulationEnd - SimulationStart;
                 Guid numberOfSmallLoadingDocks = harbor.ID;
+                viewModel.ClearConsole();
                 Simulation sim = new(harbor, currenttime.AddDays(SimulationStart) , currenttime.AddDays(SimulationEnd));
 
                 //abonerer på events
@@ -197,6 +196,7 @@ namespace Gruppe8.HarbNet.GuiEdition
                     SimulationStartingEventArgs args = (SimulationStartingEventArgs)e;
                     viewModel.AddToConsole($"▶️ SIMULATION STARTING 🖥️\n" +
                         $"Simulating from day {SimulationStart} to day {SimulationEnd}");
+                    Thread.Sleep(100);
                 };
                 sim.ShipAnchored += (sender, e) =>
                 {
@@ -210,6 +210,7 @@ namespace Gruppe8.HarbNet.GuiEdition
                     viewModel.AddToConsole($"🚢 ⚓ 🏗\n" +
                         $"{args.CurrentTime}: {args.Ship.Name} docked to loading dock");
                     shipsDocked++;
+                    Thread.Sleep(100);
                 };
                 sim.ShipDockedToShipDock += (sender, e) =>
                 {
@@ -269,8 +270,7 @@ namespace Gruppe8.HarbNet.GuiEdition
                 sim.OneHourHasPassed += (sender, e) =>
                 {
                     OneHourHasPassedEventArgs args = (OneHourHasPassedEventArgs)e;
-                    Console.WriteLine($"🕑 New hour {args.CurrentTime.TimeOfDay} 🕑");
-
+                    viewModel.AddToConsole($"🕑 New hour {args.CurrentTime.TimeOfDay.Hours} 🕑");
                 };
 
                 sim.SimulationEnded += (sender, e) =>
@@ -278,7 +278,7 @@ namespace Gruppe8.HarbNet.GuiEdition
                     SimulationEndedEventArgs args = (SimulationEndedEventArgs)e;
 
                     viewModel.AddToConsole($"⏸️ SIMULATION OVER 🖥️\n\n" +
-                        $"During the simulation:\n" +
+                        $"Harbor efficency stats:\n" +
                         $"-------------------------\n" +
                         $"Containers entered harbor: {ContainersEnteredHarbor}\n" +
                         $"Containers exited harbor on trucks: {ContainersExitedHarborOnTrucks}\n" +

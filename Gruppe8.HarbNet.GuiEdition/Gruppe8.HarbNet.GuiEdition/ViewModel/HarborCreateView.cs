@@ -315,6 +315,8 @@ namespace Gruppe8.HarbNet.GuiEdition.ViewModel
             items.Add(consoleOutput);
         }
 
+        public void ClearConsole() { items.Clear(); }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         void onPropertyChanged(String name) =>
