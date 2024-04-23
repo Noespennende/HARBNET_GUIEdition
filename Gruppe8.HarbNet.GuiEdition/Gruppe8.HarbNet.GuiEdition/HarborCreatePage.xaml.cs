@@ -12,6 +12,42 @@ public partial class HarborCreatePage : ContentPage
 		BindingContext = viewModel;
 	}
 
+	private async void OnCreateHarborClicked(object sender, EventArgs e)
+	{
+		try
+		{
+			Console.WriteLine("du klikket meg");
+			Harbor createdHarbor = CreateHarborViewModel();
+
+			if (createdHarbor != null)
+			{
+				Console.WriteLine("harbor created");
+                string harborInfo = $"Harbor created with ID: {createdHarbor.ID}, Name:, etc.";
+				ConsoleViewModel cvm = new ConsoleViewModel();
+                MainPage mainPage = new MainPage(cvm);
+
+			}
+
+		}catch (Exception ex)
+		{
+			//
+		}
+    
+}
+
+    private void TEXTChanged(object sender, FocusEventArgs e)
+    {
+        if (sender is Entry entry)
+        {
+			if(!string.IsNullOrEmpty(entry.Text)){
+				if (!int.TryParse(entry.Text, out _))
+				{
+
+					DisplayAlert("Feil type", "Gi en gyldig heltallsverdi.", "OK");
+				}
+			}
+        }
+    }
 
 
 
