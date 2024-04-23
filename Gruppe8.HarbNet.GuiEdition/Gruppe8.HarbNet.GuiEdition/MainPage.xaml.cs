@@ -13,6 +13,7 @@ namespace Gruppe8.HarbNet.GuiEdition
         int ContainersExitedHarborOnTrucks = 0;
         int ContainersExitedHarborOnShips = 0;
         int shipsDocked = 0;
+        DateTime currenttime = DateTime.Now;
 
 
 
@@ -69,7 +70,9 @@ namespace Gruppe8.HarbNet.GuiEdition
                 int numberOfAdv = int.Parse(viewModel.NumberOfAdv);
                 int loadsPerAdvPerHour = int.Parse(viewModel.LoadsPerAdvPerHour);
 
-                List<Ship> listOfShips = new List<Ship>(5);
+                List<Ship> listOfShips = new List<Ship>(5) {
+                    new Ship("test 1", ShipSize.Large, currenttime.AddDays(1), false, 2, 5, 5),
+                    new Ship("test 2", ShipSize.Large, currenttime.AddDays(1), false, 2, 5, 5) };
                 List<ContainerStorageRow> listOfContainerStorageRows = new List<ContainerStorageRow>(5);
                 harbor = new Harbor(listOfShips, listOfContainerStorageRows, numberOfSmallLoadingDocks, numberOfMediumLoadingDocks, numberOfLargeLoadingDocks,
                     numberOfCranesNextToLoadingDocks, numberOfLoadsPerCranePerHour, numberOfCranesOnHarborStorageArea, numberOfSmallShipDocks,
@@ -104,7 +107,6 @@ namespace Gruppe8.HarbNet.GuiEdition
         {
             try
             {
-                DateTime currenttime = DateTime.Now;
                 int SimulationStart = int.Parse(viewModel.SimulationStart);
                 int SimulationEnd = int.Parse(viewModel.SimulationEnd);
                 int numberOfDaysSimulated = SimulationEnd - SimulationStart;
