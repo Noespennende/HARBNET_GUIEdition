@@ -341,7 +341,7 @@ namespace Gruppe8.HarbNet.GuiEdition
                         $"Average containers exited harbor per hour on trucks: {(float)Math.Round((float)ContainersExitedHarborOnTrucks/hoursPassed, 2)}\n" +
                         $"\nCurrently:\n" +
                         $"-------------------------\n" +
-                        $"Containers stored in harbor: {sim.History[sim.History.Count].ContainersInHarbour.Count}\n" +
+                        $"Containers stored in harbor: {sim.History[sim.History.Count - 1].ContainersInHarbour.Count}\n" +
                         $"Ships docked to loading docks: {sim.History[sim.History.Count - 1].ShipsDockedInLoadingDocks.Count}\n" +
                         $"Ships docked to ship docks: {sim.History[sim.History.Count - 1].ShipsDockedInShipDocks.Count}\n" +
                         $"Ships anchored in anchorage: {sim.History[sim.History.Count - 1].ShipsInAnchorage.Count}\n" +

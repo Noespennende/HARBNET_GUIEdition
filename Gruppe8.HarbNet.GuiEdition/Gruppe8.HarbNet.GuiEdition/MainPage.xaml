@@ -46,10 +46,10 @@
                     <Entry Margin="10" Grid.Column="0" x:Name="NumberOfTrucksArriveToHarborPerHour" Placeholder="Number of trucks that arrive per hour" Text="{Binding NumberOfTrucksArriveToHarborPerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
                     <Entry Margin="10" Grid.Column="1" x:Name="PercentageOfContainersDirectlyLoadedFromShipToTrucks" Placeholder="Percentage of Ship containers for trucks " Text="{Binding PercentageOfContainersDirectlyLoadedFromShipToTrucks, Mode=TwoWay}" Unfocused="TextChanged"/>
                     <Entry Margin="10" Grid.Column="2" x:Name="PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks" Placeholder="Percentage Storage containers for trucks" Text="{Binding PercentageOfContainersDirectlyLoadedFromHarborStorageToTrucks, Mode=TwoWay}" Unfocused="TextChanged"/>
-                    <!--ADV-->
-                    <Label Text="Customize the ADV's at your harbor" VerticalOptions="Center" HorizontalOptions="Center" />
-                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfAdv" Placeholder="Number of ADV"  Text="{Binding NumberOfAdv, Mode=TwoWay}" Unfocused="TextChanged"/>
-                    <Entry Margin="10" Grid.Column="1" x:Name="LoadsPerAdvPerHour" Placeholder="Number of loads per adv per hour"  Text="{Binding LoadsPerAdvPerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <!--AGV-->
+                    <Label Text="Customize the AGV's at your harbor" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Margin="10" Grid.Column="0" x:Name="NumberOfAdv" Placeholder="Number of AGV"  Text="{Binding NumberOfAdv, Mode=TwoWay}" Unfocused="TextChanged"/>
+                    <Entry Margin="10" Grid.Column="1" x:Name="LoadsPerAdvPerHour" Placeholder="Number of loads per AGV per hour"  Text="{Binding LoadsPerAdvPerHour, Mode=TwoWay}" Unfocused="TextChanged"/>
                     <!--Simulation-->
                     <Button x:Name="harborClick" Text="Create Harbor" Clicked="OnCreateHarborClicked" />
                     <Entry x:Name="SimulationStart" Placeholder="SimulationStart" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding SimulationStart, Mode=TwoWay}" />
