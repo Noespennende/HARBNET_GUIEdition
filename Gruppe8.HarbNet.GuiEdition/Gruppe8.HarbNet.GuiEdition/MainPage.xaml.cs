@@ -94,7 +94,7 @@ namespace Gruppe8.HarbNet.GuiEdition
             }
             catch (Exception ex)
             {
-                //
+                viewModel.AddToConsole($"Something went wrong with the exception {ex.ToString}");
             }
 
         }
@@ -119,7 +119,7 @@ namespace Gruppe8.HarbNet.GuiEdition
             }
             catch (Exception ex)
             {
-                //
+                viewModel.AddToConsole($"Something went wrong with the exception {ex.ToString}");
             }
 
         }
@@ -157,7 +157,7 @@ namespace Gruppe8.HarbNet.GuiEdition
             }
             catch (Exception ex)
             {
-                //
+                viewModel.AddToConsole($"Something went wrong with the exception {ex.ToString}");
             }
             return null;
         }
@@ -359,8 +359,7 @@ namespace Gruppe8.HarbNet.GuiEdition
             }
             catch (Exception ex)
             {
-                //
-                //
+                viewModel.AddToConsole($"Something went wrong with the exception {ex.ToString}");
             }
             
         }
